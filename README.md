@@ -21,8 +21,54 @@ pip install flask_restx
 
 
 ## MongoDB Schema
+- 目前資料庫設計
+```
+{
+    '_id': {
+        'type': 'object',
+        'required': True,
+        'example': ObjectId("615f388e871a89ce413f8b4")
+    },
+    '地區': {
+        'type': 'string',
+        'example': "台北市"
+    },
+    '性別要求': {
+        'type': 'string',
+        'example': "男女皆可"
+    },
+    '物件名稱': {
+        'type': 'string',
+        'example': "師大旁近捷運-1樓雅房共2間"
+    },
+    '出租者': {
+        'type': 'string',
+        'example': "黃先生"
+    },
+    '出租者身分': {
+        'type': 'string',
+        'example': "代理人"
+    },
+    '聯絡電話': {
+        'type': 'string',
+        'example': "0912-345-678"
+    },
+    '型態(Shape)': {
+        'type': 'string',
+        'example': "公寓"
+    },
+    '現況(Kind)': {
+        'type': 'string',
+        'example': "雅房"
+    },
+    'URL': {
+        'type': 'string',
+        'example': "https://rent.591.com.tw/home/123456789.html"
+    }
+}
+```
+**日後可改善成引用模式，讓子實體(物件詳細資訊)去引用主實體(固定篩選條件)**
 
-有更好的改善空間
 
 ## Reponse 範例: JSON格式回傳
 **回傳範例檔案名稱**
@@ -51,7 +97,7 @@ pip install flask_restx
 - 下載後直接解壓縮，雙擊index.html即可開啟API文件
 
 
-### Reference
+## 參考來源 Reference
 - 591 租屋網 - 租屋資訊爬蟲
   - https://github.com/AlanSyue/rent591data
 - How to create Restful CRUD API with Python Flask, MongoDB, and Docker.
