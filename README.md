@@ -18,6 +18,59 @@ pip install pymongo
 pip install flask
 pip install flask_restx
 ```
+#### (1) 指定地區；性別要求去查詢租屋物件
+    /region={region}/gender={gender}/limit={limit}
+  - region 地區
+  - gender 性別要求
+  - limit 限制回傳筆數
+
+#### (2) 指定出租者聯絡電話去查詢租屋物件
+    /renter_tel={renter_tel}/limit={limit}
+    
+#### (3) 查詢指定屋主身分的租屋物件
+    /renter_id={renter_id}/limit={limit}
+
+#### (4) 查詢指定地區、屋主姓氏與性別資訊之物件
+    /region={region}/renter_gender={renter_gender}/renter_name={lastName}/limit={limit}
+
+#### (5) 上述查詢都可以藉由Requestr將Body parameters的內容作為篩選條件進行查詢。(輸入格式為JSON)
+    /item
+- Body parameters
+```
+### 查詢【男生可承租】且【位於新北】的租屋物件 ###
+{
+    "Filter": {
+        "地區": "新北市",
+        "性別要求": {"$regex": "男女皆可|限男"}
+    }
+}
+
+### 以【聯絡電話】查詢租屋物件 ###
+{
+    "Filter": {
+        "聯絡電話": "0912-345-678"
+    }
+}
+
+### 所有【非屋主自行刊登】的租屋物件 ###
+{
+    "Filter": {
+        "出租者身分": {"$ne": "屋主"}
+    }
+}
+
+### 【臺北】【屋主為女性】【姓氏為吳】所刊登的所有租屋物件 ###
+{
+    "Filter": {
+        "出租者": {
+            "$regex": "^吳(小姐|太太|阿姨)"
+        },
+        "出租者身分": "屋主",
+        "地區": "台北市"
+    }
+}
+
+```
 
 
 ## MongoDB Schema
