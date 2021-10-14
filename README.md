@@ -128,7 +128,7 @@ pip install flask_restx
     }
 }
 ```
-**日後可改善成引用模式，讓子實體(物件詳細資訊)去引用主實體(固定篩選條件)**
+**日後可改善成引用模式，讓相對多量的子實體(物件詳細資訊)去引用較少紀錄的主實體(固定篩選條件)**
 
 
 ## Reponse 範例: JSON格式回傳
@@ -153,8 +153,8 @@ pip install flask_restx
 - response_新北_男性可租.json
 
 ## API規格文件: html2-documentation-generated.zip
-**PATH: api_document/**
-- 使用Swagger
+**Folder: api_document/**
+- 使用SwaggerHub
 - 下載後直接解壓縮，雙擊index.html即可開啟API文件
 
 
