@@ -20,18 +20,26 @@ pip install flask_restx
 ```
 #### (1) 指定地區；性別要求去查詢租屋物件
     /region={region}/gender={gender}/limit={limit}
-  - region 地區
-  - gender 性別要求
-  - limit 限制回傳筆數
+  - region `string` 輸入指定查詢地區(1:台北市, 2:新北市)
+  - gender `string` 輸入指定性別要求(0:男女皆可, 1:限男, 2:限女)，可利用&選擇多條件
+  - limit `integer` 指定最多回傳的紀錄筆數，輸入0即為無設置
 
 #### (2) 指定出租者聯絡電話去查詢租屋物件
     /renter_tel={renter_tel}/limit={limit}
-    
+  - renter_tel `string` 可輸入出租者聯絡電話進行查詢。
+  - limit `integer` 指定最多回傳的紀錄筆數，輸入0即為無設置
+
 #### (3) 查詢指定屋主身分的租屋物件
     /renter_id={renter_id}/limit={limit}
+  - renter_id `string` 指定屋主身分(0:非屋主自租, 1:屋主自租)
+  - limit `integer` 指定最多回傳的紀錄筆數，輸入0即為無設置
 
 #### (4) 查詢指定地區、屋主姓氏與性別資訊之物件
     /region={region}/renter_gender={renter_gender}/renter_name={lastName}/limit={limit}
+  - region `string` 輸入指定查詢地區(1:台北市, 2:新北市)
+  - renter_gender `string` 指定屋主性別(0:不指定, 1:女性, 2:男性)
+  - lastName `string` 指定屋主姓氏
+  - limit `integer` 指定最多回傳的紀錄筆數，輸入0即為無設置
 
 #### (5) 上述查詢都可以藉由Requestr將Body parameters的內容作為篩選條件進行查詢。(輸入格式為JSON)
     /item
